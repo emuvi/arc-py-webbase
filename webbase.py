@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from enum import Enum
 import subprocess
 import random
@@ -102,9 +101,6 @@ if os.path.exists(destiny_address):
         print("[ERROR] The destiny address is a file.")
         sys.exit(-5)
 
-subprocess.run(["httrack", command_option, origin_address, command_size,
-                command_depth, command_walker, "-O", destiny_address, "-v"])
-
 process_counter += 1
 option = (str(process_counter) + ";" + origin_address + ";" + destiny_address +
           ";" + str(external_depth) + ";" + direction.value + "\n")
@@ -114,5 +110,8 @@ options_write = open('webbase.txt', 'w')
 options_write.writelines(options)
 options_write.flush()
 options_write.close()
+
+subprocess.run(["httrack", command_option, origin_address, command_size,
+                command_depth, command_walker, "-O", destiny_address, "-v"])
 
 print("Finished to process one base.")
