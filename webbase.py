@@ -68,6 +68,8 @@ if destiny_address == "":
     print("[ERROR] The destiny address is empty.")
     sys.exit(-4)
 
+destiny_address = "data" + os.path.sep + destiny_address
+
 command_option = "--mirror"
 if direction == Direction.SINGLE:
     command_option = "--get"
@@ -100,6 +102,8 @@ if os.path.exists(destiny_address):
     else:
         print("[ERROR] The destiny address is a file.")
         sys.exit(-5)
+else:
+    os.makedirs(destiny_address)
 
 process_counter += 1
 option = (str(process_counter) + ";" + origin_address + ";" + destiny_address +
