@@ -68,7 +68,8 @@ if destiny_address == "":
     print("[ERROR] The destiny address is empty.")
     sys.exit(-4)
 
-destiny_address = "data" + os.path.sep + destiny_address
+if not destiny_address.startswith("data" + os.path.sep):
+    destiny_address = "data" + os.path.sep + destiny_address
 
 command_option = "--mirror"
 if direction == Direction.SINGLE:
