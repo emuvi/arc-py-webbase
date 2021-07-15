@@ -30,13 +30,19 @@ if len(options) <= 0:
 
 index = 0
 option = ""
+attempt = 0
 while True:
+    attempt =+ 1
+    if attempt > 1000:
+        print("[ERROR] Could not find an option.")
+        sys.exit(-2)
     index = random.randint(0, len(options) - 1)
     option = options[index].strip()
     if option.startswith('#'):
         continue
     else:
         break
+    
 
 if option == "":
     print("[ERROR] The option is empty.")
@@ -106,7 +112,7 @@ if os.path.exists(destiny_address):
 else:
     os.makedirs(destiny_address)
 
-process_counter += 1
+process_counter =+ 1
 option = (str(process_counter) + ";" + origin_address + ";" + destiny_address +
           ";" + str(external_depth) + ";" + direction.value + "\n")
 options[index] = option

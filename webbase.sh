@@ -1,4 +1,2 @@
-#!/bin/bash
-echo "Starting WebBase..."
-cd /mnt/HDS1/webbase
+#/bin/bash
 python3 webbase.py
