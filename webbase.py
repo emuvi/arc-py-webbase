@@ -16,7 +16,7 @@ class Direction(Enum):
 process_counter = 0
 origin_address = ""
 destiny_address = ""
-external_depth = 3
+external_depth = 1
 direction_param = ""
 direction = Direction.ANY
 
@@ -38,7 +38,7 @@ while True:
         sys.exit(-2)
     index = random.randint(0, len(options) - 1)
     option = options[index].strip()
-    if option.startswith('#'):
+    if not option or option.startswith('#'):
         continue
     else:
         break
