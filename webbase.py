@@ -16,7 +16,7 @@ class Direction(Enum):
 process_counter = 0
 origin_address = ""
 destiny_address = ""
-external_depth = 1
+external_depth = 0
 direction_param = ""
 direction = Direction.ANY
 
